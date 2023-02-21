@@ -9,7 +9,7 @@
     {
         public double SquareRoot(double input)
         {
-            throw new NotImplementedException();
+            return input / 2;
         }
     }
 }
