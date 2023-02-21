@@ -8,6 +8,8 @@
         {
             m_balance = balance;
         }
+
+        public double Balance => m_balance;
         public void Withdraw(double amount)
         {
             if (m_balance >= amount)
