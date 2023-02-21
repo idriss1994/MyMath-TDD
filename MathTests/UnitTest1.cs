@@ -35,11 +35,24 @@ namespace MathTests
             }
         }
 
+        [TestMethod]
+        public void RooterTestNegativeInput()
+        {
+            Rooter rooter = new();
+            Assert.ThrowsException<ArgumentOutOfRangeException>(() => rooter.SquareRoot(-1));
+        }
+
+
+
+
+
         private void RooterOneValue(Rooter rooter, double expectedResult)
         {
             double input = expectedResult * expectedResult;
             double actualResult = rooter.SquareRoot(input);
             Assert.AreEqual(expectedResult, actualResult, delta: expectedResult / 1000);
         }
+
+
     }
 }
