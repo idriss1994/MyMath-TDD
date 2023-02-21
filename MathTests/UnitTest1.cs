@@ -1,3 +1,5 @@
+using MyMath;
+
 namespace MathTests
 {
     [TestClass]
