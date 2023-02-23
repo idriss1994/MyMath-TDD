@@ -2,6 +2,7 @@
 using Accounts.Models.Accounts;
 using Accounts.Services.Accounts;
 using FluentAssertions;
+using Force.DeepCloner;
 using Moq;
 using Xunit;
 
@@ -25,7 +26,7 @@ namespace MyMath.App.Tests.Unit.Services.Accounts
             var randomAccount = new Account();
             Account inputAccount = randomAccount;
             Account storageAccount = inputAccount;
-            Account expectedAccount = storageAccount;
+            Account expectedAccount = storageAccount.DeepClone();
 
             this.storageBrokerMock.Setup(broker =>
                  broker.InsertAccount(inputAccount))
