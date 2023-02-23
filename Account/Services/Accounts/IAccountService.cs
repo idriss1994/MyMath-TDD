@@ -24,7 +24,9 @@ namespace Accounts.Services.Accounts
         //Write Test first (TDD).
         public Account AddAccount(Account account)
         {
-            throw new NotImplementedException();
+            Account storageAccount = _storageBroker.InsertAccount(account);
+
+            return storageAccount;
         }
     }
 }

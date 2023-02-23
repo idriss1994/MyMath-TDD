@@ -10,5 +10,7 @@ namespace Accounts.Brokers
     public interface IStorageBroker
     {
         Account InsertAccount(Account account);
+        Account UpdateAccount(Account account);
+        void RemoveAccount(Guid id);
     }
 }
