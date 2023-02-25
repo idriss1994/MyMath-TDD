@@ -43,5 +43,31 @@ namespace MyMath.App.Tests.Unit.Services.Accounts
 
             this.storageBrokerMock.VerifyNoOtherCalls();
         }
+
+        [Fact]
+        public void ShouldUpdateAccount()
+        {
+            // given
+            var randomAccount = new Account();
+            var inputAccount = randomAccount;
+            inputAccount.Name = "Updated Name";
+            var storageAccount = inputAccount;
+            var expectedAccount = storageAccount;
+
+            this.storageBrokerMock.Setup(storage =>
+                   storage.UpdateAccount(inputAccount))
+                .Returns(storageAccount);
+
+            // when
+            Account actualAccount = this.accountService.UpdateAccount(inputAccount);
+
+            // then
+            actualAccount.Should().BeEquivalentTo(expectedAccount);
+
+            this.storageBrokerMock.Verify(broker =>
+                 broker.UpdateAccount(inputAccount), Times.Once());
+
+            this.storageBrokerMock.VerifyNoOtherCalls();
+        }
     }
 }
