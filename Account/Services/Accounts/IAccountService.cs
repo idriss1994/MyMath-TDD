@@ -11,6 +11,7 @@ namespace Accounts.Services.Accounts
     public interface IAccountService
     {
         Account AddAccount(Account account);
+        Account UpdateAccount(Account account);
     }
 
     public class AccountService : IAccountService
@@ -25,6 +26,14 @@ namespace Accounts.Services.Accounts
         public Account AddAccount(Account account)
         {
             Account storageAccount = _storageBroker.InsertAccount(account);
+
+            return storageAccount;
+        }
+
+        //Write Test first (TDD).
+        public Account UpdateAccount(Account account)
+        {
+            Account storageAccount = _storageBroker.UpdateAccount(account);
 
             return storageAccount;
         }
